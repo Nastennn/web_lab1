@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link href="Style.css" rel="stylesheet">
+    <script src="check.js"></script>
+
+    <script type="text/javascript">
+        function func() {
+            let xhr = new XMLHttpRequest();
+            xhr.open("POST", 'https://se.ifmo.ru/~s278172/lab1/index.php', false);
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.setRequestHeader("Connection", "close");
+            xhr.send(null);
+            if (xhr.status === 200) {
+                document.getElementById("request").contentDocument.write(xhr.responseText);
+            }
+        }
+    </script>
+    <title>Web Lab1</title>
+</head>
+<body>
+<div id="header">
+    <p class="header">Зырянова Анастасия</p>
+    <p class="header">Гр. P3200</p>
+    <p class="header">Вариант 200009</p>
+</div>
+
+<div id="chart">
+    <img class="image" src="chart.png" alt="chart">
+</div>
+<div>
+    <!--    <form  action="index.php" method="get" target="request" >-->
+    <!--    </form>-->
+    <form action="index.php" method="post" target="request" onsubmit="return check();">
+        <div id="choice">
+            <label for="x" class="select">
+                Выберите Х:
+            </label>
+            <select name="x" id="x">
+                <option value="-2"> -2</option>
+                <option value="-1.5"> -1.5</option>
+                <option value="-1"> -1</option>
+                <option value="-0.5"> -0.5</option>
+                <option value="0"> 0</option>
+                <option value="0.5"> 0.5</option>
+                <option value="1"> 1</option>
+                <option value="1.5"> 1.5</option>
+                <option value="2"> 2</option>
+            </select>
+            <label for="y" class="select">
+                Выберите Y:
+            </label>
+            <input type="number" name="y" id="y" placeholder="-3...5" min="-3" max="5">
+            <label class="select" id="r"> Выберите R:</label>
+            <p class="checkbox">
+                <label for="r1">
+                    <input type="checkbox" name="r1" id="r1" value="1"> 1
+                </label></p>
+            <p class="checkbox">
+                <label for="r1.5">
+                    <input type="checkbox" name="r15" id="r1.5" value="1.5">1.5
+                </label>
+            </p>
+            <p class="checkbox">
+                <label for="r2">
+                    <input type="checkbox" name="r2" id="r2" value="2">2
+                </label></p>
+            <p class="checkbox">
+                <label for="r2.5">
+                    <input type="checkbox" name="r25" id="r2.5" value="2.5">2.5
+                </label>
+            </p>
+            <p class="checkbox">
+                <label for="r3">
+                    <input type="checkbox" name="r3" id="r3" value="3">3
+                </label></p>
+            <div>
+                <label for="message"></label><textarea disabled id="message" name="message"></textarea>
+            </div>
+            <p><input class="button" type="submit"> <input class="button" type="reset"></p>
+
+        </div>
+        <iframe name="request" id="request" onload="func()">
+        </iframe>
+
+    </form>
+
+</div>
+
+<div class="bottom">
+    <p class="year">2019</p>
+</div>
+
+</body>
+</html>
+
+<!-- scp -r -P 2222 /home/maanti/IdeaProjects/Web-lab1/* s278172@helios.cs.ifmo.ru:/home/s278172/public_html/lab1/  >
