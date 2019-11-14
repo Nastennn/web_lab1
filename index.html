@@ -34,6 +34,7 @@
     <!--    </form>-->
     <form action="index.php" method="post" target="request" onsubmit="return check();">
         <div id="choice">
+            <div>
             <label for="x" class="select">
                 Выберите Х:
             </label>
@@ -48,10 +49,14 @@
                 <option value="1.5"> 1.5</option>
                 <option value="2"> 2</option>
             </select>
+        </div>
+            <div>
             <label for="y" class="select">
                 Выберите Y:
             </label>
-            <input type="number" name="y" id="y" placeholder="-3...5" min="-3" max="5">
+            <input type="text" name="y" id="y" placeholder = "-3..5">
+            </div>
+            <div>
             <label class="select" id="r"> Выберите R:</label>
             <p class="checkbox">
                 <label for="r1">
@@ -75,6 +80,7 @@
                 <label for="r3">
                     <input type="checkbox" name="r3" id="r3" value="3">3
                 </label></p>
+            </div>
             <div>
                 <label for="message"></label><textarea disabled id="message" name="message"></textarea>
             </div>
